@@ -8,6 +8,7 @@ import { FooterComponent } from './footer/footer.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { Page404Component } from './page404/page404.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,7 @@ import { Page404Component } from './page404/page404.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ReactiveFormModule
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
