@@ -8,6 +8,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 })
 export class RegisterComponent implements OnInit {
 
+  submitted = false;
   registerForm: FormGroup = new FormGroup({
     firstName: new FormControl('', [Validators.required]),
     lastName: new FormControl('', [Validators.required]),
@@ -22,7 +23,14 @@ export class RegisterComponent implements OnInit {
   }
 
   register(){
-    
+    this.submitted = true;
+    if(this.registerForm.invalid)
+    {
+      return;
+    }
+    let users = JSON.parse(localStorage.getItem('users') || '[]');
+    users.push(this.registerForm.value);
+    localStorage.setItem('users', JSON.stringify(users));    
   }
 
 }
