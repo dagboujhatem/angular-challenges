@@ -3,7 +3,7 @@
         <form [formGroup]="registerForm" (ngSubmit)="register()">
             <div class="form-group">
                 <label for="firstName">First Name :</label>
-                <input type="text" class="form-control" id="firstName" placeholder="Type your fisrt name here" formControlName="firstName">
+                <input type="text" class="form-control" id="firstName" placeholder="Type your fisrt name here" formControlName="firstName" [ngClass]="{'is-invalid': submitted && registerForm.controls.firstName.errors, 'is-valid': submitted && !registerForm.controls.firstName.errors}">
                 <div class="invalid-feedback d-block" *ngIf="submitted && registerForm.controls.firstName.hasError('required')">
                     The first name is required.
                 </div>
