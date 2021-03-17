@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-add-skills',
@@ -12,6 +12,7 @@ export class AddSkillsComponent implements OnInit {
   addUserForm: FormGroup = new FormGroup({
     firstName: new FormControl('', [Validators.required, Validators.minLength(4)]),
     lastName: new FormControl('', [Validators.required, Validators.minLength(4)]),
+    skillsArray: new FormArray([])
   });
   constructor() { }
 
@@ -29,6 +30,28 @@ export class AddSkillsComponent implements OnInit {
     console.log(this.addUserForm.value);
     
 
+  }
+
+
+  get getSkills(): FormArray 
+  {
+      return this.addUserForm.get('skillsArray') as FormArray;
+  }
+
+  addRow()
+  {
+    this.getSkills.push(new FormGroup({
+      skill: new FormControl('', [Validators.required]),
+      rating: new FormControl('', [Validators.required])
+    }));
+    console.log(this.addUserForm.value);
+    
+
+  }
+
+  removeRow()
+  {
+    // this.getSkills.at(this.getSkills.length, 1);
   }
 
 }

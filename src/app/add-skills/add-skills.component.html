@@ -19,6 +19,17 @@
                     <div *ngIf="submitted && addUserForm.controls.lastName.hasError('minlength')">Last name is invalid format > 4.</div>
                 </div>
             </div> 
+
+            <div>Skills: 
+                <button class="btn btn-success" (click)="addRow()">+ Add</button>
+                <button class="btn btn-danger" (click)="removeRow()">- Remove</button>
+                <div *ngFor="let group of getSkills.controls; let i=index">
+                    	<div class="form-group">
+                            <label for="">Skill</label>
+                            <input type="text" class="form-control" [formControlName]="i">
+                        </div>
+                </div>
+            </div>
             <button type="submit" class="btn btn-primary btn-block">Save user</button>
         </form>
     </div>
