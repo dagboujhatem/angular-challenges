@@ -37,7 +37,7 @@ export class AddTodoComponent implements OnInit {
     // this.submitted = false;
 
     // affect todo to user
-    console.log(this.addTodoForm.value);
+    // console.log(this.addTodoForm.value);
     
     let connectedUser = JSON.parse(localStorage.getItem('connected-user') || '{}');
     if(connectedUser.affectedTodos == null || connectedUser.affectedTodos == undefined)
