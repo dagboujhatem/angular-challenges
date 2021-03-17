@@ -1,1 +1,25 @@
-<p>add-skills works!</p>
+<div class="row">
+    <div class="offset-3 col-6">
+        <form [formGroup]="addUserForm" (ngSubmit)="saveData()">
+            <div class="form-group">
+                <label for="firstName">First name :</label>
+                <input type="text" class="form-control" id="firstName" placeholder="Type your first name address here" formControlName="firstName"
+                 [ngClass]="{'is-invalid': submitted && addUserForm.controls.firstName.errors, 'is-valid': submitted && !addUserForm.controls.firstName.errors}">
+                 <div class="invalid-feedback d-block">
+                    <div *ngIf="submitted && addUserForm.controls.firstName.hasError('required')">First name is required.</div>
+                    <div *ngIf="submitted && addUserForm.controls.firstName.hasError('minlength')">First name is invalid format > 4.</div>
+                </div>
+            </div> 
+            <div class="form-group">
+                <label for="lastName">Last name :</label>
+                <input type="text" class="form-control" id="lastName" placeholder="Type your last Name here" formControlName="lastName" 
+                [ngClass]="{'is-invalid': submitted && addUserForm.controls.lastName.errors, 'is-valid': submitted && !addUserForm.controls.lastName.errors}">
+                <div class="invalid-feedback d-block">
+                    <div *ngIf="submitted && addUserForm.controls.lastName.hasError('required')">Last name is required.</div>
+                    <div *ngIf="submitted && addUserForm.controls.lastName.hasError('minlength')">Last name is invalid format > 4.</div>
+                </div>
+            </div> 
+            <button type="submit" class="btn btn-primary btn-block">Save user</button>
+        </form>
+    </div>
+</div>
