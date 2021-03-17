@@ -7,9 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListTodoComponent implements OnInit {
 
+  todos = JSON.parse(localStorage.getItem('todos') || '[]');
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  deleteTask(i){
+    this.todos.splice(i, 1);
+    localStorage.setItem('todos', JSON.stringify(this.todos))
   }
 
 }

@@ -1,1 +1,24 @@
-<p>add-todo works!</p>
+<div class="row">
+    <div class="offset-3 col-6">
+        <form [formGroup]="addTodoForm" (ngSubmit)="saveTodo()">
+            <div class="form-group">
+                <label for="name">Name :</label>
+                <input type="text" class="form-control" id="name" placeholder="Type name here" formControlName="name"
+                 [ngClass]="{'is-invalid': submitted && addTodoForm.controls.name.errors, 'is-valid': submitted && !addTodoForm.controls.name.errors}">
+                 <div class="invalid-feedback d-block">
+                    <div *ngIf="submitted && addTodoForm.controls.name.hasError('required')">Name is required.</div>
+                </div>
+            </div> 
+            <div class="form-group">
+                <label for="description">Description :</label>
+                <textarea class="form-control" row="10" id="description" placeholder="Type your description here" formControlName="description" 
+                [ngClass]="{'is-invalid': submitted && addTodoForm.controls.description.errors, 'is-valid': submitted && !addTodoForm.controls.description.errors}"></textarea>
+                <div class="invalid-feedback d-block">
+                    <div *ngIf="submitted && addTodoForm.controls.description.hasError('required')">Description is required.</div>
+                    <div *ngIf="submitted && addTodoForm.controls.description.hasError('minlength')">Description is invalid format > 8.</div>
+                </div>
+            </div> 
+            <button type="submit" class="btn btn-success btn-block">Save</button>
+        </form>
+    </div>
+</div>

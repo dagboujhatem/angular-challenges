@@ -12,6 +12,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ListTodoComponent } from './list-todo/list-todo.component';
 import { UpdateTodoComponent } from './update-todo/update-todo.component';
 import { AddTodoComponent } from './add-todo/add-todo.component';
+import { AddSkillsComponent } from './add-skills/add-skills.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { AddTodoComponent } from './add-todo/add-todo.component';
     Page404Component,
     ListTodoComponent,
     UpdateTodoComponent,
-    AddTodoComponent
+    AddTodoComponent,
+    AddSkillsComponent
   ],
   imports: [
     BrowserModule,
