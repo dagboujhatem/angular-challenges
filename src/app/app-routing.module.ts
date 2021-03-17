@@ -30,7 +30,7 @@ const routes: Routes = [
     component: AddTodoComponent
   },
   {
-    path: 'update-todo/:index',
+    path: 'update-todo/:id',
     component: UpdateTodoComponent
   },
   {

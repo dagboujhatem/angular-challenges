@@ -13,8 +13,9 @@ export class ListTodoComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  deleteTask(i){
-    this.todos.splice(i, 1);
+  deleteTask(id){
+    let index = this.todos.findIndex(x=> x.id == id);
+    this.todos.splice(index, 1);
     localStorage.setItem('todos', JSON.stringify(this.todos))
   }
 

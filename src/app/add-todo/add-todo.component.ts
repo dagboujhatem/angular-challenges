@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { v4 as uuid } from 'uuid';
 
 @Component({
   selector: 'app-add-todo',
@@ -11,6 +12,7 @@ export class AddTodoComponent implements OnInit {
 
   submitted = false;
   addTodoForm: FormGroup = new FormGroup({
+    id: new FormControl(uuid()),
     name: new FormControl('', [Validators.required]),
     description: new FormControl('', [Validators.required, Validators.minLength(8)]),
   });
