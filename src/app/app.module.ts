@@ -10,6 +10,8 @@ import { RegisterComponent } from './register/register.component';
 import { Page404Component } from './page404/page404.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ListTodoComponent } from './list-todo/list-todo.component';
+import { UpdateTodoComponent } from './update-todo/update-todo.component';
+import { AddTodoComponent } from './add-todo/add-todo.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +21,9 @@ import { ListTodoComponent } from './list-todo/list-todo.component';
     LoginComponent,
     RegisterComponent,
     Page404Component,
-    ListTodoComponent
+    ListTodoComponent,
+    UpdateTodoComponent,
+    AddTodoComponent
   ],
   imports: [
     BrowserModule,
