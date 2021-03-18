@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { AddProjectComponent } from './add-project/add-project.component';
 import { AddSkillsComponent } from './add-skills/add-skills.component';
 import { AddTodoComponent } from './add-todo/add-todo.component';
 import { ListTodoComponent } from './list-todo/list-todo.component';
@@ -37,6 +38,10 @@ const routes: Routes = [
   {
     path: 'add-user-with-skills',
     component: AddSkillsComponent
+  },
+  {
+    path: 'add-project',
+    component: AddProjectComponent
   },
   {
     path: '**',

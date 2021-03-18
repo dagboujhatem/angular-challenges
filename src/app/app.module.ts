@@ -8,11 +8,12 @@ import { FooterComponent } from './footer/footer.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { Page404Component } from './page404/page404.component';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 import { ListTodoComponent } from './list-todo/list-todo.component';
 import { UpdateTodoComponent } from './update-todo/update-todo.component';
 import { AddTodoComponent } from './add-todo/add-todo.component';
 import { AddSkillsComponent } from './add-skills/add-skills.component';
+import { AddProjectComponent } from './add-project/add-project.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { AddSkillsComponent } from './add-skills/add-skills.component';
     ListTodoComponent,
     UpdateTodoComponent,
     AddTodoComponent,
-    AddSkillsComponent
+    AddSkillsComponent,
+    AddProjectComponent
   ],
   imports: [
     BrowserModule,
