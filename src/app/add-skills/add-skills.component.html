@@ -20,26 +20,30 @@
                 </div>
             </div> 
 
-            <div>Skills: 
-                <button class="btn btn-success" (click)="addRow()" type="button"><i class="fa fa-plus"></i> Add</button>
-                <button class="btn btn-danger" (click)="removeLastRow()" type="button"><i class="fa fa-trash-alt"></i> Remove Last skill</button>
-                <button class="btn btn-danger" (click)="removeAllRow()" type="button"><i class="fa fa-trash-alt"></i> Remove All Skills</button>
-                <div *ngFor="let group of getSkills.controls; let i=index" class="row">
+            <div formArrayName="skillsArray">Skills: 
+                <button class="btn btn-success mx-2" (click)="addRow()" type="button"><i class="fa fa-plus"></i> Add</button>
+                <button class="btn btn-danger mx-2" (click)="removeLastRow()" type="button"><i class="fa fa-trash-alt"></i> Remove Last skill</button>
+                <button class="btn btn-danger mx-2" (click)="removeAllRow()" type="button"><i class="fa fa-trash-alt"></i> Remove All Skills</button>
+                <div *ngFor="let group of getSkills.controls; let i=index">
+                    <div [formGroupName]="i" class="row mt-1">
                         <div class="form-group col-5">
-                            <input type="text" class="form-control" [formControlName]="i" placeholder="Type your skill">
+                            <input type="text" class="form-control" formControlName="skill" placeholder="Type your skill" [ngClass]="{'is-invalid': submitted && getSkills.controls[i].get('skill')?.errors, 'is-valid': submitted && !getSkills.controls[i].get('skill')?.errors}">
+                            <div class="invalid-feedback d-block" *ngIf="submitted && getSkills.controls[i].get('skill')?.hasError('required')">Skill {{ i+1 }} is required.</div>
                         </div>
                     	<div class="form-group col-5">
-                            <input type="text" class="form-control" [formControlName]="i" placeholder="Type your rating, i.e 8/10">
+                            <input type="text" class="form-control" formControlName="rating" placeholder="Type your rating, i.e 8/10"  [ngClass]="{'is-invalid': submitted && getSkills.controls[i].get('rating')?.errors, 'is-valid': submitted && !getSkills.controls[i].get('rating')?.errors}">
+                            <div class="invalid-feedback d-block" *ngIf="submitted && getSkills.controls[i].get('rating')?.hasError('required')">Rating {{ i+1 }} is required.</div>
                         </div>
                         <div class="col-2">
                             <button class="btn btn-danger" (click)="removeRow(i)" type="button">
                                  <i class="fa fa-trash-alt"></i>
                             </button>
                         </div>
+                    </div>
                 </div>
             </div>
-            <button type="submit" class="btn btn-primary btn-block">Save user</button>
-            {{ addUserForm.value | json }}
+            <button type="submit" class="btn btn-primary btn-block mt-1">Save user</button>
+            {{ addUserForm.value.skillsArray | json }}
         </form>
     </div>
 </div>

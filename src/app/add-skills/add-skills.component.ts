@@ -44,7 +44,6 @@ export class AddSkillsComponent implements OnInit {
       skill: new FormControl('', [Validators.required]),
       rating: new FormControl('', [Validators.required])
     }));
-    console.log(this.addUserForm.value);
     
 
   }
@@ -61,10 +60,13 @@ export class AddSkillsComponent implements OnInit {
 
   removeAllRow()
   {
+    // last way
+    this.getSkills.clear();
+
     // first way
-    for (let index = 0; this.getSkills.length != 0; index++) {
-      this.getSkills.removeAt(0);
-    }
+    // for (let index = 0; this.getSkills.length != 0; index++) {
+    //   this.getSkills.removeAt(0);
+    // }
 
     // second way 
     // for (let index = this.getSkills.length; index >= 0; index--) {
