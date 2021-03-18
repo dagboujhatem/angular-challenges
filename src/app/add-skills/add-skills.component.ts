@@ -49,9 +49,33 @@ export class AddSkillsComponent implements OnInit {
 
   }
 
-  removeRow()
+  removeRow(i)
   {
-    // this.getSkills.at(this.getSkills.length, 1);
+    this.getSkills.removeAt(i);
+  }
+
+  removeLastRow()
+  {
+    this.getSkills.removeAt(this.getSkills.length -1);
+  }
+
+  removeAllRow()
+  {
+    // first way
+    for (let index = 0; this.getSkills.length != 0; index++) {
+      this.getSkills.removeAt(0);
+    }
+
+    // second way 
+    // for (let index = this.getSkills.length; index >= 0; index--) {
+    //   this.getSkills.removeAt(index);
+    // }
+
+
+    // third way
+    // while (this.getSkills.length !== 0) {
+    //   this.getSkills.removeAt(0)
+    // }
   }
 
 }
