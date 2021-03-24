@@ -1,0 +1,34 @@
+<div class="row">
+    <div class="offset-3 col-6">
+        <form [formGroup]="addProductForm" (ngSubmit)="saveProduct()">
+            <div class="form-group">
+                <label for="name">Name :</label>
+                <input type="text" class="form-control" id="name" placeholder="Type name here" formControlName="name"
+                 [ngClass]="{'is-invalid': submitted && addProductForm.controls.name.errors, 'is-valid': submitted && !addProductForm.controls.name.errors}">
+                 <div class="invalid-feedback d-block">
+                    <div *ngIf="submitted && addProductForm.controls.name.hasError('required')">Name is required.</div>
+                </div>
+            </div> 
+            <div class="form-group">
+                <label for="description">Description :</label>
+                <textarea class="form-control" row="10" id="description" placeholder="Type your description here" formControlName="description" 
+                [ngClass]="{'is-invalid': submitted && addProductForm.controls.description.errors, 'is-valid': submitted && !addProductForm.controls.description.errors}"></textarea>
+                <div class="invalid-feedback d-block">
+                    <div *ngIf="submitted && addProductForm.controls.description.hasError('required')">Description is required.</div>
+                    <div *ngIf="submitted && addProductForm.controls.description.hasError('minlength')">Description is invalid format > 8.</div>
+                </div>
+            </div> 
+            <div class="form-group">
+                <label for="quantity">Quantity :</label>
+                <input type="number" class="form-control" id="quantity" placeholder="Type quantity here" formControlName="quantity"
+                 [ngClass]="{'is-invalid': submitted && addProductForm.controls.quantity.errors, 'is-valid': submitted && !addProductForm.controls.quantity.errors}">
+                 <div class="invalid-feedback d-block">
+                    <div *ngIf="submitted && addProductForm.controls.quantity.hasError('required')">Quantity is required.</div>
+                    <div *ngIf="submitted && addProductForm.controls.quantity.hasError('min')">Quantity must be greater than or equal 0 (>=0).</div>
+                </div>
+            </div> 
+            <button type="submit" class="btn btn-success btn-block"><i class="fa fa-save"></i> Save new product</button>
+            <button class="btn btn-info btn-block" routerLink="/list-products"><i class="fas fa-arrow-circle-left"></i> Cancel</button>
+        </form>
+    </div>
+</div>

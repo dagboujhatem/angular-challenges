@@ -6,6 +6,9 @@ import { AddTodoComponent } from './add-todo/add-todo.component';
 import { ListTodoComponent } from './list-todo/list-todo.component';
 import { LoginComponent } from './login/login.component';
 import { Page404Component } from './page404/page404.component';
+import { AddProductComponent } from './products/add-product/add-product.component';
+import { ListProductsComponent } from './products/list-products/list-products.component';
+import { UpdateProductComponent } from './products/update-product/update-product.component';
 import { RegisterComponent } from './register/register.component';
 import { UpdateTodoComponent } from './update-todo/update-todo.component';
 
@@ -42,6 +45,18 @@ const routes: Routes = [
   {
     path: 'add-project',
     component: AddProjectComponent
+  },
+  {
+    path: 'add-product',
+    component: AddProductComponent
+  },
+  {
+    path: 'list-products',
+    component: ListProductsComponent
+  },
+  {
+    path: 'update-product/:index',
+    component: UpdateProductComponent
   },
   {
     path: '**',

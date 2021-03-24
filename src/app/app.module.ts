@@ -8,12 +8,17 @@ import { FooterComponent } from './footer/footer.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { Page404Component } from './page404/page404.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ListTodoComponent } from './list-todo/list-todo.component';
 import { UpdateTodoComponent } from './update-todo/update-todo.component';
 import { AddTodoComponent } from './add-todo/add-todo.component';
 import { AddSkillsComponent } from './add-skills/add-skills.component';
 import { AddProjectComponent } from './add-project/add-project.component';
+import { AddProductComponent } from './products/add-product/add-product.component';
+import { UpdateProductComponent } from './products/update-product/update-product.component';
+import { ListProductsComponent } from './products/list-products/list-products.component';
+import { SoldePipe } from './pipes/solde.pipe';
+import { SearchPipe } from './pipes/search.pipe';
 
 @NgModule({
   declarations: [
@@ -27,12 +32,18 @@ import { AddProjectComponent } from './add-project/add-project.component';
     UpdateTodoComponent,
     AddTodoComponent,
     AddSkillsComponent,
-    AddProjectComponent
+    AddProjectComponent,
+    AddProductComponent,
+    UpdateProductComponent,
+    ListProductsComponent,
+    SoldePipe,
+    SearchPipe
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
