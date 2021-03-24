@@ -1,0 +1,26 @@
+<div class="row">
+    <div class="offset-3 col-6">
+        <form [formGroup]="addUserForm" (ngSubmit)="saveUser()">
+            <div class="form-group">
+                <label for="firstName">First Name :</label>
+                <input type="text" class="form-control" id="firstName" placeholder="Type your first Name here" formControlName="firstName"
+                 [ngClass]="{'is-invalid': submitted && addUserForm.controls.firstName.errors, 'is-valid': submitted && !addUserForm.controls.firstName.errors}">
+                 <div class="invalid-feedback d-block">
+                    <div *ngIf="submitted && addUserForm.controls.firstName.hasError('required')">First name is required.</div>
+                </div>
+            </div> 
+            <div class="form-group">
+                <label for="lastName">Last Name :</label>
+                <input type="text" class="form-control" row="10" id="lastName" placeholder="Type your last name here" formControlName="lastName" 
+                [ngClass]="{'is-invalid': submitted && addUserForm.controls.lastName.errors, 'is-valid': submitted && !addUserForm.controls.lastName.errors}">
+                <div class="invalid-feedback d-block">
+                    <div *ngIf="submitted && addUserForm.controls.lastName.hasError('required')">Last name is required.</div>
+                    <div *ngIf="submitted && addUserForm.controls.lastName.hasError('minlength')">Last name is invalid format > 8.</div>
+                </div>
+            </div> 
+            <button type="submit" class="btn btn-success btn-block"><i class="fa fa-save"></i> Save User</button>
+        </form>
+    </div>
+</div>
+
+<app-list-users></app-list-users>

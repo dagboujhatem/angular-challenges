@@ -11,6 +11,7 @@ import { ListProductsComponent } from './products/list-products/list-products.co
 import { UpdateProductComponent } from './products/update-product/update-product.component';
 import { RegisterComponent } from './register/register.component';
 import { UpdateTodoComponent } from './update-todo/update-todo.component';
+import { AddUserComponent } from './users/add-user/add-user.component';
 
 const routes: Routes = [
   {
@@ -57,6 +58,10 @@ const routes: Routes = [
   {
     path: 'update-product/:index',
     component: UpdateProductComponent
+  },
+  {
+    path: 'users',
+    component: AddUserComponent
   },
   {
     path: '**',

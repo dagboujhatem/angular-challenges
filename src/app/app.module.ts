@@ -19,6 +19,8 @@ import { UpdateProductComponent } from './products/update-product/update-product
 import { ListProductsComponent } from './products/list-products/list-products.component';
 import { SoldePipe } from './pipes/solde.pipe';
 import { SearchPipe } from './pipes/search.pipe';
+import { AddUserComponent } from './users/add-user/add-user.component';
+import { ListUsersComponent } from './users/list-users/list-users.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +39,9 @@ import { SearchPipe } from './pipes/search.pipe';
     UpdateProductComponent,
     ListProductsComponent,
     SoldePipe,
-    SearchPipe
+    SearchPipe,
+    AddUserComponent,
+    ListUsersComponent
   ],
   imports: [
     BrowserModule,
