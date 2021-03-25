@@ -21,6 +21,8 @@ import { SoldePipe } from './pipes/solde.pipe';
 import { SearchPipe } from './pipes/search.pipe';
 import { AddUserComponent } from './users/add-user/add-user.component';
 import { ListUsersComponent } from './users/list-users/list-users.component';
+import { SharedModule } from './shared/shared.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -46,8 +48,8 @@ import { ListUsersComponent } from './users/list-users/list-users.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ReactiveFormsModule,
-    FormsModule
+    SharedModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
