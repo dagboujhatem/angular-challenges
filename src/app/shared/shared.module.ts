@@ -7,7 +7,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 // Angular Material Modules imports 
 import { MatInputModule } from '@angular/material/input';
-import { MatSliderModule } from '@angular/material/slider';
 
 @NgModule({
   declarations: [],
@@ -19,8 +18,7 @@ import { MatSliderModule } from '@angular/material/slider';
     // Angular HttpModule
     HttpClientModule,
     // Angular Material Modules 
-    MatInputModule,
-    MatSliderModule,
+    MatInputModule,   
   ],
   exports: [
     ReactiveFormsModule,
@@ -28,8 +26,7 @@ import { MatSliderModule } from '@angular/material/slider';
     // Angular HttpModule
     HttpClientModule,
     // Angular Material Modules 
-    MatInputModule,
-    MatSliderModule,
+    MatInputModule, 
   ]
 })
 export class SharedModule { }
