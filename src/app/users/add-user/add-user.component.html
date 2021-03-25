@@ -18,9 +18,10 @@
                     <div *ngIf="submitted && addUserForm.controls.lastName.hasError('minlength')">Last name is invalid format > 8.</div>
                 </div>
             </div> 
-            <button type="submit" class="btn btn-success btn-block"><i class="fa fa-save"></i> Save User</button>
+            <button *ngIf="!showUpdateButton" type="submit" class="btn btn-success btn-block"><i class="fa fa-save"></i> Save User</button>
+            <button *ngIf="showUpdateButton" type="button" class="btn btn-success btn-block" (click)="saveUpdate()"><i class="fa fa-save"></i> Save Update</button>
         </form>
     </div>
 </div>
 
-<app-list-users></app-list-users>
+<app-list-users [usersList]="users"  (updateEvent)="showUserData($event)" (deleteEvent)="onDelete($event)"></app-list-users>

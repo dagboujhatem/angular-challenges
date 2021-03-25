@@ -10,12 +10,12 @@
               </tr>
             </thead>
             <tbody>
-              <tr *ngFor="let user of users ; let i=index">
+              <tr *ngFor="let user of usersList ; let i=index">
                 <th scope="row">{{ i+1 }}</th>
                 <td>{{ user.firstName }}</td>
                 <td>{{ user.lastName }}</td> 
                 <td>
-                    <button class="btn btn-info" ><i class="fa fa-pen"></i> Update</button>
+                    <button class="btn btn-info" (click)="updateUser(i)"><i class="fa fa-pen"></i> Update</button>
                     <button class="btn btn-danger ml-1" (click)="deleteUser(i)"><i class="fa fa-trash"></i> Delete</button>
                 </td>
               </tr>
