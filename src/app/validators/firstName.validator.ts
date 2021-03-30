@@ -2,7 +2,9 @@ import { AbstractControl } from '@angular/forms';
 
 export function firstNameValidator(firstNameControl: AbstractControl):  {[key: string]: any} | null
 {
-    if (firstNameControl.pristine) { // pristine return True if user has not interacted with the control yet.
+        // pristine return True if user has not interacted with the control yet.
+    // pristine: Valeur booléenne indiquant si le "control" a été modifié.
+    if (firstNameControl.pristine) {
         return null;
     }
 

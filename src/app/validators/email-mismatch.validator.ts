@@ -5,7 +5,9 @@ export function emailMismatchValidator(group: AbstractControl): {[key: string]: 
     const email = group.get('email');
     const confirmEmail = group.get('emailConfirmation');
 
-    if (email.pristine || confirmEmail.pristine) { // pristine return True if user has not interacted with the control yet.
+    // pristine return True if user has not interacted with the control yet.
+    // pristine: Valeur booléenne indiquant si le "control" a été modifié.
+    if (email.pristine || confirmEmail.pristine) { 
         return null;
     }
   
