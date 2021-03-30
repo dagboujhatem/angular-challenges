@@ -12,6 +12,7 @@ import { MatButtonModule } from '@angular/material/button';
 // import { MatTableDataSource } from '@angular/material/table';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
   declarations: [],
@@ -29,6 +30,7 @@ import { MatDialogModule } from '@angular/material/dialog';
     // MatTableDataSource,
     MatSnackBarModule,
     MatDialogModule,
+    MatIconModule,
   ],
   exports: [
     ReactiveFormsModule,
@@ -38,10 +40,12 @@ import { MatDialogModule } from '@angular/material/dialog';
     // Angular Material Modules 
     MatInputModule, 
     MatButtonModule,
+
     // MatPaginator,
     // MatTableDataSource,
     MatSnackBarModule,
     MatDialogModule,
+    MatIconModule,
   ]
 })
 export class SharedModule { }
