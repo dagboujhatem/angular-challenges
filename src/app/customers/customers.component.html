@@ -15,8 +15,8 @@
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let product of products; let i=index">
-              <th scope="row">{{ product.id | slice:0:3 }}</th>
+            <tr *ngFor="let product of productsList">
+              <th scope="row">{{ product.id }}</th>
               <td>{{ product.name  }}</td>
               <td>{{ product.description }}</td>
               <td>{{ product.quantity  }}</td>

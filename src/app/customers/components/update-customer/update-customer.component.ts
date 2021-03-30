@@ -36,11 +36,12 @@ export class UpdateCustomerComponent implements OnInit {
   loadProductData() {
     // First step : patch product info in the form.
     this.productsService.getOneProductById(this.productID).subscribe((response)=>{
-      this.updateProductForm.patchValue(response);
+          this.updateProductForm.patchValue(response);
+          // Second step : update the updatedAt 
+          this.updateProductForm.get('updatedAt').setValue(new Date());
     }, (error)=>{
         console.log(error);        
-    });
-    // Second step : update the updatedAt 
+    });    
   }
 
 
