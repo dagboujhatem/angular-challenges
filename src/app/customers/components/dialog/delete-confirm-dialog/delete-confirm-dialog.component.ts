@@ -13,6 +13,9 @@ export class DeleteConfirmDialogComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  /**
+   *  This is the first way to do it
+   */
   onConfirm(): void {
     // Close the dialog, return true
     this.dialogRef.close(true);
@@ -22,5 +25,9 @@ export class DeleteConfirmDialogComponent implements OnInit {
     // Close the dialog, return false
     this.dialogRef.close(false);
   }
+
+  /**
+   *  End of first way to do it
+   */
 
 }
