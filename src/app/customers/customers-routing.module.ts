@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AddCustomerComponent } from './add-customer/add-customer.component';
+import { AddCustomerComponent } from './components/add-customer/add-customer.component';
 import { CustomersComponent } from './customers.component';
-import { UpdateCustomerComponent } from './update-customer/update-customer.component';
+import { UpdateCustomerComponent } from './components/update-customer/update-customer.component';
 
 const routes: Routes = [
   { path: '', component: CustomersComponent },

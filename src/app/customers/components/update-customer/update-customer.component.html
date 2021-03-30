@@ -1,24 +1,24 @@
 <div class="row">
   <div class="offset-3 col-6">
-    <form class="example-form" [formGroup]="addProductForm" (ngSubmit)="saveProduct()">
+    <form class="example-form" [formGroup]="updateProductForm" (ngSubmit)="updateProduct()">
 
       <mat-form-field class="example-full-width">
         <mat-label>Name :</mat-label>
         <input matInput placeholder="Type your product name here" formControlName="name">
-        <mat-error *ngIf="addProductForm.get('name').hasError('required')">Name is required.</mat-error>
+        <mat-error *ngIf="updateProductForm.get('name').hasError('required')">Name is required.</mat-error>
       </mat-form-field>
 
       <mat-form-field class="example-full-width">
         <mat-label>Description :</mat-label>
         <textarea matInput placeholder="Type your product description here" formControlName="description"></textarea>
-        <mat-error *ngIf="addProductForm.get('description').hasError('required')">Description is required.</mat-error>
+        <mat-error *ngIf="updateProductForm.get('description').hasError('required')">Description is required.</mat-error>
       </mat-form-field>
 
       <mat-form-field class="example-full-width">
         <mat-label>Quantity :</mat-label>
         <input type="number" matInput placeholder="Type a quantity here " formControlName="quantity">
-        <mat-error *ngIf="addProductForm.get('quantity').hasError('required')">Quantity is required.</mat-error>
-        <mat-error *ngIf="addProductForm.get('quantity').hasError('min')">Quantity must be a positive number.
+        <mat-error *ngIf="updateProductForm.get('quantity').hasError('required')">Quantity is required.</mat-error>
+        <mat-error *ngIf="updateProductForm.get('quantity').hasError('min')">Quantity must be a positive number.
         </mat-error>
       </mat-form-field>
 
@@ -27,12 +27,12 @@
         <input type="number" matInput placeholder="Type the product price here" formControlName="price">
         <span matPrefix>$&nbsp;</span>
         <span matSuffix>.00</span>
-        <mat-error *ngIf="addProductForm.get('price').hasError('required')">Price is required.</mat-error>
-        <mat-error *ngIf="addProductForm.get('price').hasError('min')">Price must be greater than or equal to $2.00.
+        <mat-error *ngIf="updateProductForm.get('price').hasError('required')">Price is required.</mat-error>
+        <mat-error *ngIf="updateProductForm.get('price').hasError('min')">Price must be greater than or equal to $2.00.
         </mat-error>
       </mat-form-field>
 
-      <button mat-button color="primary" type="submit" [disabled]="addProductForm.invalid"
+      <button mat-button color="primary" type="submit" [disabled]="updateProductForm.invalid"
         class="btn btn-success btn-block text-white">Save product</button>
       <button type="button" routerLink="/customers" class="btn btn-info btn-block">Cancel</button>
     </form>

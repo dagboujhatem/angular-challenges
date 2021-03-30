@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ProductsService } from '../../services/products.service';
 
 @Component({
   selector: 'app-update-customer',
@@ -10,39 +12,52 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class UpdateCustomerComponent implements OnInit {
 
   submitted = false;
-  productID;
-  addProductForm : FormGroup = new FormGroup({
-    id: new FormControl(''),
-    name: new FormControl('', [Validators.required]),
-    description: new FormControl('', [Validators.required]),
-    quantity: new FormControl('', [Validators.required, Validators.min(0)]),
-    price: new FormControl('', [Validators.required, Validators.min(2)]),
-    createdAt: new FormControl(''),
-    updatedAt: new FormControl('')
-  });
-  constructor(private router: Router, private activatedRoute: ActivatedRoute) { }
+  productID: any;
+  updateProductForm : FormGroup;
+  constructor(private router: Router,
+    private activatedRoute: ActivatedRoute,
+    private productsService: ProductsService,
+    private snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
-    this.productID = this.activatedRoute.params['id'];
+    this.updateProductForm = new FormGroup({
+      id: new FormControl(''),
+      name: new FormControl('', [Validators.required]),
+      description: new FormControl('', [Validators.required]),
+      quantity: new FormControl('', [Validators.required, Validators.min(0)]),
+      price: new FormControl('', [Validators.required, Validators.min(2)]),
+      createdAt: new FormControl(''),
+      updatedAt: new FormControl('')
+    });
+    this.productID = this.activatedRoute.snapshot.params['id'];
     this.loadProductData();
   }
 
   loadProductData() {
     // First step : patch product info in the form.
+    this.productsService.getOneProductById(this.productID).subscribe((response)=>{
+      this.updateProductForm.patchValue(response);
+    }, (error)=>{
+        console.log(error);        
+    });
     // Second step : update the updatedAt 
   }
 
 
-  saveProduct()
+  updateProduct()
   {
     this.submitted = false;
-    if(this.addProductForm.invalid)
+    if(this.updateProductForm.invalid)
     {
       return; 
     }
 
-    console.log(this.addProductForm.value);
-    this.router.navigateByUrl('/customers');
+    this.productsService.updateProductById(this.productID, this.updateProductForm.value).subscribe((response)=>{
+      this.router.navigateByUrl('/customers');
+      this.snackBar.open("Product updated successfully!", "Done", {duration: 2000});
+    }, (error)=>{
+        console.log(error);        
+    });
   }
 
 }

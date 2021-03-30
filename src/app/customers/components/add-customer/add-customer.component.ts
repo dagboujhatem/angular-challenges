@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
-import { v4 as uuid } from 'uuid';
+import { ProductsService } from '../../services/products.service';
 
 @Component({
   selector: 'app-add-customer',
@@ -11,18 +12,20 @@ import { v4 as uuid } from 'uuid';
 export class AddCustomerComponent implements OnInit {
 
   submitted = false;
-  addProductForm : FormGroup = new FormGroup({
-    id: new FormControl(uuid()),
-    name: new FormControl('', [Validators.required]),
-    description: new FormControl('', [Validators.required]),
-    quantity: new FormControl('', [Validators.required, Validators.min(0)]),
-    price: new FormControl('', [Validators.required, Validators.min(2)]),
-    createdAt: new FormControl(new Date()),
-    updatedAt: new FormControl(new Date())
-  });
-  constructor(private router: Router) { }
+  addProductForm : FormGroup;
+  constructor(private router: Router,
+     private productsService: ProductsService,
+     private snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
+    this.addProductForm = new FormGroup({
+      name: new FormControl('', [Validators.required]),
+      description: new FormControl('', [Validators.required]),
+      quantity: new FormControl('', [Validators.required, Validators.min(0)]),
+      price: new FormControl('', [Validators.required, Validators.min(2)]),
+      createdAt: new FormControl(new Date()),
+      updatedAt: new FormControl(new Date())
+    });
   }
 
   saveProduct()
@@ -33,8 +36,12 @@ export class AddCustomerComponent implements OnInit {
       return; 
     }
 
-    console.log(this.addProductForm.value);
-    this.router.navigateByUrl('/customers');
+    this.productsService.addProduct(this.addProductForm.value).subscribe((response)=>{
+      this.router.navigateByUrl('/customers');
+      this.snackBar.open("Product saved successfully!", "Done", {duration: 2000});
+    }, (error)=>{
+        console.log(error);        
+    });
     
   }
 

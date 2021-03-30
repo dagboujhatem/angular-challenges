@@ -10,6 +10,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 // import { MatPaginator } from '@angular/material/paginator';
 // import { MatTableDataSource } from '@angular/material/table';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [],
@@ -25,6 +26,7 @@ import { MatButtonModule } from '@angular/material/button';
     MatButtonModule,
     // MatPaginator,
     // MatTableDataSource,
+    MatSnackBarModule,
   ],
   exports: [
     ReactiveFormsModule,
@@ -36,6 +38,7 @@ import { MatButtonModule } from '@angular/material/button';
     MatButtonModule,
     // MatPaginator,
     // MatTableDataSource,
+    MatSnackBarModule,
   ]
 })
 export class SharedModule { }
