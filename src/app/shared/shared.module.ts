@@ -7,6 +7,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 // Angular Material Modules imports 
 import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
+// import { MatPaginator } from '@angular/material/paginator';
+// import { MatTableDataSource } from '@angular/material/table';
 
 @NgModule({
   declarations: [],
@@ -18,7 +21,10 @@ import { MatInputModule } from '@angular/material/input';
     // Angular HttpModule
     HttpClientModule,
     // Angular Material Modules 
-    MatInputModule,   
+    MatInputModule,
+    MatButtonModule,
+    // MatPaginator,
+    // MatTableDataSource,
   ],
   exports: [
     ReactiveFormsModule,
@@ -27,6 +33,9 @@ import { MatInputModule } from '@angular/material/input';
     HttpClientModule,
     // Angular Material Modules 
     MatInputModule, 
+    MatButtonModule,
+    // MatPaginator,
+    // MatTableDataSource,
   ]
 })
 export class SharedModule { }

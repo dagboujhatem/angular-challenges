@@ -1,1 +1,33 @@
-<p>customers works!</p>
+<div class="row mt-5">
+  <div class="offset-1 col-9">
+      <button class="btn btn-primary float-right my-2"  routerLink="/customers/add"><i class="fa fa-plus"></i> Add product</button>
+  </div>
+  <div class="offset-1 col-9">
+      <table class="table table-striped table-hover">
+          <thead>
+            <tr>
+              <th scope="col">ID</th>
+              <th scope="col">Name</th>
+              <th scope="col">Description</th>
+              <th scope="col">Quantity</th>
+              <th scope="col">Price</th>
+              <th scope="col">Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let product of products; let i=index">
+              <th scope="row">{{ product.id | slice:0:3 }}</th>
+              <td>{{ product.name  }}</td>
+              <td>{{ product.description }}</td>
+              <td>{{ product.quantity  }}</td>
+              <td>{{ product.price  }}</td>
+              <td>
+                  <button class="btn btn-info" [routerLink]="[ '/customers/update', product.id]"><i class="fa fa-pen"></i> Update</button>
+                  <!-- <button class="btn btn-info" routerLink="/update-product/{{i}}">Update</button> -->
+                  <button class="btn btn-danger ml-1" (click)="deleteProduct(product.id)"><i class="fa fa-trash"></i> Delete</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+  </div>
+</div>
