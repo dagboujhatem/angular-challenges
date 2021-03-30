@@ -1,1 +1,39 @@
-<p>update-dialog works!</p>
+<h1 mat-dialog-title>Edit product</h1>
+<form mat-dialog-content class="example-form" [formGroup]="updateProductForm" (ngSubmit)="updateProduct()">
+
+  <mat-form-field class="example-full-width">
+    <mat-label>Name :</mat-label>
+    <input matInput placeholder="Type your product name here" formControlName="name">
+    <mat-error *ngIf="updateProductForm.get('name').hasError('required')">Name is required.</mat-error>
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width">
+    <mat-label>Description :</mat-label>
+    <textarea matInput placeholder="Type your product description here" formControlName="description"></textarea>
+    <mat-error *ngIf="updateProductForm.get('description').hasError('required')">Description is required.</mat-error>
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width">
+    <mat-label>Quantity :</mat-label>
+    <input type="number" matInput placeholder="Type a quantity here " formControlName="quantity">
+    <mat-error *ngIf="updateProductForm.get('quantity').hasError('required')">Quantity is required.</mat-error>
+    <mat-error *ngIf="updateProductForm.get('quantity').hasError('min')">Quantity must be a positive number.
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width">
+    <mat-label>Price :</mat-label>
+    <input type="number" matInput placeholder="Type the product price here" formControlName="price">
+    <span matPrefix>$&nbsp;</span>
+    <span matSuffix>.00</span>
+    <mat-error *ngIf="updateProductForm.get('price').hasError('required')">Price is required.</mat-error>
+    <mat-error *ngIf="updateProductForm.get('price').hasError('min')">Price must be greater than or equal to $2.00.
+    </mat-error>
+  </mat-form-field>
+
+  <div mat-dialog-actions>
+    <button mat-button color="primary" type="submit" [disabled]="updateProductForm.invalid"
+      class="btn btn-success text-white">Save product</button>
+    <button mat-button (click)="onDismiss()" type="button" class="btn btn-info" cdkFocusInitial>Cancel</button>
+  </div>
+</form>

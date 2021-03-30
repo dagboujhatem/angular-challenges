@@ -11,7 +11,6 @@ import { ProductsService } from '../../services/products.service';
 })
 export class AddCustomerComponent implements OnInit {
 
-  submitted = false;
   addProductForm : FormGroup;
   constructor(private router: Router,
      private productsService: ProductsService,
@@ -30,7 +29,6 @@ export class AddCustomerComponent implements OnInit {
 
   saveProduct()
   {
-    this.submitted = false;
     if(this.addProductForm.invalid)
     {
       return; 

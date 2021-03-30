@@ -22,8 +22,9 @@
               <td>{{ product.quantity  }}</td>
               <td>{{ product.price  }}</td>
               <td>
-                  <button class="btn btn-info" [routerLink]="[ '/customers/update', product.id]"><i class="fa fa-pen"></i> Update</button>
-                  <!-- <button class="btn btn-info" routerLink="/update-product/{{i}}">Update</button> -->
+                  <button class="btn btn-info ml-1" (click)="updateProduct(product)"><i class="fa fa-pen"></i> Update prodcut</button>
+                  <button class="btn btn-info ml-1" [routerLink]="[ '/customers/update', product.id]"><i class="fa fa-pen"></i> Update</button>
+                  <!-- <button class="btn btn-info ml-1" routerLink="/update-product/{{i}}">Update</button> -->
                   <button class="btn btn-danger ml-1" (click)="deleteProduct(product.id)"><i class="fa fa-trash"></i> Delete</button>
               </td>
             </tr>

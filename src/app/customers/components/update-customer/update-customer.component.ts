@@ -11,7 +11,6 @@ import { ProductsService } from '../../services/products.service';
 })
 export class UpdateCustomerComponent implements OnInit {
 
-  submitted = false;
   productID: any;
   updateProductForm : FormGroup;
   constructor(private router: Router,
@@ -47,7 +46,6 @@ export class UpdateCustomerComponent implements OnInit {
 
   updateProduct()
   {
-    this.submitted = false;
     if(this.updateProductForm.invalid)
     {
       return; 
