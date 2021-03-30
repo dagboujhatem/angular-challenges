@@ -1,8 +1,11 @@
-import { FormControl } from '@angular/forms';
+import { AbstractControl } from '@angular/forms';
 
-export function firstNameValidator(firstNameControl: FormControl)
+export function firstNameValidator(firstNameControl: AbstractControl):  {[key: string]: any} | null
 {
-    const firstName = firstNameControl.value;
-  
-    return /admin/.test(firstName) ? {firstNameNotAdmin: true}: null;
+    if (firstNameControl.pristine) { // pristine return True if user has not interacted with the control yet.
+        return null;
+    }
+
+    const entredFirstName = firstNameControl.value; 
+    return /admin/.test(entredFirstName) ? {firstNameNotAdmin: true}: null;
 }

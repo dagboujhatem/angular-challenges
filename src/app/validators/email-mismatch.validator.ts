@@ -1,9 +1,13 @@
-import { FormGroup } from '@angular/forms';
+import { AbstractControl } from '@angular/forms';
 
-export function emailMismatchValidator(group: FormGroup)
+export function emailMismatchValidator(group: AbstractControl): {[key: string]: any} | null
 {
-    const email = group.get('email').value;
-    const confirmEmail = group.get('emailConfirmation').value;
+    const email = group.get('email');
+    const confirmEmail = group.get('emailConfirmation');
+
+    if (email.pristine || confirmEmail.pristine) { // pristine return True if user has not interacted with the control yet.
+        return null;
+    }
   
-    return email === confirmEmail ? null : { emailNotSame: true }
+    return email && confirmEmail && email.value === confirmEmail.value ? null : { emailNotSame: true }
 }
