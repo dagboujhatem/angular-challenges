@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AuthService } from '../authentification/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -14,7 +15,7 @@ export class LoginComponent implements OnInit {
     email: new FormControl('', [Validators.required, Validators.email]),
     password: new FormControl('', [Validators.required, Validators.minLength(8)]),
   });
-  constructor(private route: Router) { }
+  constructor(private route: Router, private authService: AuthService) { }
 
   ngOnInit(): void {
   }
@@ -27,6 +28,7 @@ export class LoginComponent implements OnInit {
       return ;
     }
 
+    /*
     let users = JSON.parse(localStorage.getItem('users') || '[]');
     let found = users.find(x=> x.email === this.loginForm.value.email && x.password === this.loginForm.value.password);
     
@@ -38,8 +40,18 @@ export class LoginComponent implements OnInit {
     }
     else{
       alert("SVP vérifier votre email et password?")
-    }
+    }*/
     
+
+    this.authService.login(this.loginForm.value).subscribe((response)=>{
+          if(response.length > 0)
+          {
+            this.route.navigateByUrl('/todo-list');
+            this.authService.loginSaveState();
+          }
+      }, (error)=>{
+        console.log(error);
+      });
   }
 
 }

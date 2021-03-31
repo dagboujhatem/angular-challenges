@@ -9,9 +9,10 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class UpdateTodoComponent implements OnInit {
 
-  index;
+  id;
   submitted = false;
   updateTodoForm: FormGroup= new FormGroup({
+    id: new FormControl(''),
     name: new FormControl('', [Validators.required]),
     description: new FormControl('', [Validators.required, Validators.minLength(8)]),
   });
@@ -19,14 +20,14 @@ export class UpdateTodoComponent implements OnInit {
 
   ngOnInit(): void {
     // fist way
-    this.index = this.activatedRoute.snapshot.params['index'];
-    // console.log(this.index);
+    this.id = this.activatedRoute.snapshot.params['id'];
+    // console.log(this.id);
     this.loadTodoData();
 
     // secend way
     // this.activatedRoute.params.subscribe((params)=>{
-    //     this.index = params['index'];
-    //     console.log(this.index);
+    //     this.id = params['id'];
+    //     console.log(this.id);
     //     this.loadTodoData();
     //   });
     
@@ -35,7 +36,8 @@ export class UpdateTodoComponent implements OnInit {
   loadTodoData()
   {
     let todos = JSON.parse(localStorage.getItem('todos') || '[]');
-    let todoData = todos[this.index];
+    let index = todos.findIndex(x=> x.id == this.id);
+    let todoData = todos[index];
     this.updateTodoForm.patchValue(todoData);
 
     
@@ -50,7 +52,8 @@ export class UpdateTodoComponent implements OnInit {
     }
 
     let todos = JSON.parse(localStorage.getItem('todos') || '[]');
-    todos.splice(this.index, 1, this.updateTodoForm.value);
+    let index = todos.findIndex(x=> x.id == this.id);
+    todos.splice(index, 1, this.updateTodoForm.value);
     localStorage.setItem('todos', JSON.stringify(todos));
 
     // vider form 

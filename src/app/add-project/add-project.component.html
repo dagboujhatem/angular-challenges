@@ -1,0 +1,58 @@
+<div class="row">
+    <div class="offset-3 col-6">
+        <form [formGroup]="addProjectForm" (ngSubmit)="saveProject()">
+            <div class="form-group">
+                <label for="name">Project name :</label>
+                <input type="text" class="form-control" id="name" placeholder="Type name here" formControlName="name"
+                    [ngClass]="{'is-invalid': submitted && addProjectForm.controls.name.errors, 'is-valid': submitted && !addProjectForm.controls.name.errors}">
+                <div class="invalid-feedback d-block">
+                    <div *ngIf="submitted && addProjectForm.controls.name.hasError('required')">Name is required.</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="description">Description :</label>
+                <textarea class="form-control" row="10" id="description" placeholder="Type your description here"
+                    formControlName="description"
+                    [ngClass]="{'is-invalid': submitted && addProjectForm.controls.description.errors, 'is-valid': submitted && !addProjectForm.controls.description.errors}"></textarea>
+                <div class="invalid-feedback d-block">
+                    <div *ngIf="submitted && addProjectForm.controls.description.hasError('required')">Description is
+                        required.</div>
+                    <div *ngIf="submitted && addProjectForm.controls.description.hasError('minlength')">Description is
+                        invalid format > 8.</div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 d-flex d-block">
+                    <p class="h5">Technologies :</p>
+                    <button type="button" class="btn btn-primary mx-3 mb-2" (click)="addTechnologie()">
+                        <i class="fa fa-plus"></i> Add technologie</button>
+                    <button type="button" class="btn btn-danger mx-3 mb-2" (click)="deleteAllTechnologie()">
+                        <i class="fa fa-trash"></i>
+                            Delete all technologies
+                    </button>
+                </div>
+            </div>
+            <div formArrayName="technologies" *ngFor="let technologie of technologies.controls; let i = index;">
+                <div class="row">
+                    <div class="form-group col-8">
+                        <input type="text" placeholder="Type your technologie name here ...." class="form-control" [formControlName]="i"
+                         [ngClass]="{'is-invalid': submitted && technologie.errors, 'is-valid': submitted && !technologie.errors}">
+                         <div class="invalid-feedback d-block" *ngIf="submitted && technologie.errors">
+                            <div *ngIf="technologie.errors.required">
+                                Technologie number {{i}} is required.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <button type="button" class="btn btn-danger" (click)="deleteTechnologie(i)">
+                            <i class="fa fa-trash"></i> Delete
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-success btn-block" [disabled]="submitted && addProjectForm.invalid">
+                <i class="fa fa-save"></i> Save new project
+            </button>
+        </form>
+    </div>
+</div>

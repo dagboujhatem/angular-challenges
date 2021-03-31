@@ -1,0 +1,89 @@
+<div class="row mt-5">
+  <div class="offset-1 col-9">
+      <!-- <button class="btn btn-primary float-right my-2"  routerLink="/customers/add"><i class="fa fa-plus"></i> Add product</button> -->
+      <button mat-flat-button color="primary" class="float-right my-2" routerLink="/customers/add">
+        <mat-icon>add</mat-icon> Add product
+      </button>
+  </div>
+  <div class="offset-1 col-9">
+      <!--table class="table table-striped table-hover">
+          <thead>
+            <tr>
+              <th scope="col">ID</th>
+              <th scope="col">Name</th>
+              <th scope="col">Description</th>
+              <th scope="col">Quantity</th>
+              <th scope="col">Price</th>
+              <th scope="col">Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let product of productsList">
+              <th scope="row">{{ product.id }}</th>
+              <td>{{ product.name  }}</td>
+              <td>{{ product.description }}</td>
+              <td>{{ product.quantity  }}</td>
+              <td>{{ product.price  }}</td>
+              <td>
+                  <button class="btn btn-info ml-1" (click)="updateProduct(product)"><i class="fa fa-pen"></i> Update product</button>
+                  <button class="btn btn-info ml-1" [routerLink]="[ '/customers/update', product.id]"><i class="fa fa-pen"></i> Update</button-->
+                  <!-- <button class="btn btn-info ml-1" routerLink="/update-product/{{i}}">Update</button> -->
+                  <!--button class="btn btn-danger ml-1" (click)="deleteProduct(product.id)"><i class="fa fa-trash"></i> Delete</button>
+              </td>
+            </tr>
+          </tbody>
+        </table-->
+        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" matSort>
+
+          <!--- Note that these columns can be defined in any order.
+                The actual rendered columns are set as a property on the row definition" -->
+        
+          <!-- ID Column -->
+          <ng-container matColumnDef="id">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> ID. </th>
+            <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+          </ng-container>
+        
+          <!-- Name Column -->
+          <ng-container matColumnDef="name">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Name </th>
+            <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+          </ng-container>
+        
+          <!-- Description Column -->
+          <ng-container matColumnDef="description">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Description </th>
+            <td mat-cell *matCellDef="let element"> {{element.description}} </td>
+          </ng-container>
+        
+          <!-- Quantity Column -->
+          <ng-container matColumnDef="quantity">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Quantity </th>
+            <td mat-cell *matCellDef="let element"> {{element.quantity}} </td>
+          </ng-container>
+
+          <!-- Price Column -->
+          <ng-container matColumnDef="price">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Price </th>
+            <td mat-cell *matCellDef="let element"> {{element.price}} </td>
+          </ng-container>
+
+           <!-- Actions Column -->
+           <ng-container matColumnDef="Actions">
+            <th mat-header-cell *matHeaderCellDef > Actions </th>
+            <td mat-cell *matCellDef="let element"> 
+              <button mat-flat-button color="primary" (click)="updateProduct(element)">
+                <mat-icon>edit</mat-icon> Update 
+              </button>
+               <button mat-flat-button color="warn" (click)="deleteProduct(element.id)" class="ml-1">
+                <mat-icon>delete</mat-icon> Delete
+              </button>
+            </td>
+          </ng-container>
+        
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+        <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+  </div>
+</div>

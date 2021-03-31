@@ -1,0 +1,62 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "coca",
+      "description": "coca cola",
+      "quantity": 2,
+      "price": 20,
+      "createdAt": "2021-03-30T18:40:18.996Z",
+      "updatedAt": "2021-03-30T21:42:59.385Z"
+    },
+    {
+      "name": "fanta",
+      "description": "fanta",
+      "quantity": 1000,
+      "price": 2,
+      "createdAt": "2021-03-30T18:41:57.481Z",
+      "updatedAt": "2021-03-30T18:41:57.481Z",
+      "id": 2
+    },
+    {
+      "name": "pizza",
+      "description": "pizza",
+      "quantity": 1000,
+      "price": 20,
+      "createdAt": "2021-03-30T18:43:11.537Z",
+      "updatedAt": "2021-03-30T18:43:11.537Z",
+      "id": 3
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "fullName": "dagbouj hatem",
+      "email": "dagboujhatem@gmail.com",
+      "password": "admin",
+      "birthDate": "2021-03-08T23:00:00.000Z",
+      "createdAt": "2021-03-31T21:15:53.170Z",
+      "updatedAt": "2021-03-31T21:15:53.171Z"
+    },
+    {
+      "id": 2,
+      "fullName": "dagbouj hatem",
+      "email": "dagboujhatem2017@gmail.com",
+      "password": "ggg",
+      "birthDate": "2021-03-29T23:00:00.000Z",
+      "createdAt": "2021-03-31T21:26:12.636Z",
+      "updatedAt": "2021-03-31T21:32:08.120Z"
+    }
+  ],
+  "clients": [
+    {
+      "firstName": "dagbouj",
+      "lastName": "hatem",
+      "email": "dagboujhatem@gmail.com",
+      "emailConfirmation": "dagboujhatem@gmail.com",
+      "password": "12345678",
+      "passwordConfirmation": "12345678",
+      "id": 1
+    }
+  ]
+}
