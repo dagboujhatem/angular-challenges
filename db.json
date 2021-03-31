@@ -44,6 +44,14 @@
       "birthDate": "2004-12-10",
       "createdAt": "2021-03-31T19:53:40.743Z",
       "updatedAt": "2021-03-31T19:54:15.703Z"
+    },
+    {
+      "id": 3,
+      "fullName": "med amine",
+      "email": "medamine@gmail.com",
+      "birthDate": "1998-11-11",
+      "createdAt": "2021-03-31T20:02:08.969Z",
+      "updatedAt": "2021-03-31T20:02:08.969Z"
     }
   ]
 }

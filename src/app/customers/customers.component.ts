@@ -48,7 +48,7 @@ export class CustomersComponent implements OnInit {
   {
     const deleteDialog = this.dialog.open(DeleteConfirmDialogComponent, {
       maxWidth: "400px",
-      data: {}
+      data: { ressource: 'product'}
     });
 
     deleteDialog.afterClosed().subscribe(result => {

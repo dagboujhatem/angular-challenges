@@ -82,7 +82,7 @@ export class UserListComponent implements OnInit {
   deleteUser(userID) {
     const deleteDialog = this.dialog.open(DeleteConfirmDialogComponent, {
       maxWidth: "400px",
-      data: {}
+      data: { ressource: 'user'}
     });
 
     deleteDialog.afterClosed().subscribe(result => {
