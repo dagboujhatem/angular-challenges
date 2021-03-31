@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { AddProjectComponent } from './add-project/add-project.component';
 import { AddSkillsComponent } from './add-skills/add-skills.component';
 import { AddTodoComponent } from './add-todo/add-todo.component';
+import { AuthGuard } from './authentification/auth.guard';
 import { ListTodoComponent } from './list-todo/list-todo.component';
 import { LoginComponent } from './login/login.component';
 import { Page404Component } from './page404/page404.component';
@@ -29,41 +30,54 @@ const routes: Routes = [
   },
   {
     path: 'todo-list',
-    component: ListTodoComponent
+    component: ListTodoComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'add-todo',
-    component: AddTodoComponent
+    component: AddTodoComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'update-todo/:id',
-    component: UpdateTodoComponent
+    component: UpdateTodoComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'add-user-with-skills',
-    component: AddSkillsComponent
+    component: AddSkillsComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'add-project',
-    component: AddProjectComponent
+    component: AddProjectComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'add-product',
-    component: AddProductComponent
+    component: AddProductComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'list-products',
-    component: ListProductsComponent
+    component: ListProductsComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'update-product/:index',
-    component: UpdateProductComponent
+    component: UpdateProductComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'users',
-    component: AddUserComponent
+    component: AddUserComponent,
+    canActivate: [AuthGuard]
   },
-  { path: 'customers', loadChildren: () => import('./customers/customers.module').then(m => m.CustomersModule) },
+  { 
+    path: 'customers',
+    canActivate: [AuthGuard],
+    loadChildren: () => import('./customers/customers.module').then(m => m.CustomersModule) 
+  },
   {
     path: '**',
     component: Page404Component

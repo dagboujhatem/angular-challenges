@@ -47,7 +47,7 @@ export class LoginComponent implements OnInit {
           if(response.length > 0)
           {
             this.route.navigateByUrl('/todo-list');
-            localStorage.setItem('token', response.email);
+            localStorage.setItem('token', response[0].email);
           }
       }, (error)=>{
         console.log(error);
