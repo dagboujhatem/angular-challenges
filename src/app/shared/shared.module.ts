@@ -14,6 +14,8 @@ import { MatTableModule } from '@angular/material/table'
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatIconModule } from '@angular/material/icon';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule, MAT_DATE_LOCALE } from '@angular/material/core';
 
 @NgModule({
   declarations: [],
@@ -33,6 +35,9 @@ import { MatIconModule } from '@angular/material/icon';
     MatSnackBarModule,
     MatDialogModule,
     MatIconModule,
+    // Date picker
+    MatDatepickerModule,
+    MatNativeDateModule,
   ],
   exports: [
     ReactiveFormsModule,
@@ -48,6 +53,10 @@ import { MatIconModule } from '@angular/material/icon';
     MatSnackBarModule,
     MatDialogModule,
     MatIconModule,
-  ]
+    // Date picker
+    MatDatepickerModule,
+    MatNativeDateModule,
+  ],
+  providers: [{ provide: MAT_DATE_LOCALE, useValue: 'en-GB' }]
 })
 export class SharedModule { }

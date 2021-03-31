@@ -8,15 +8,17 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
   styleUrls: ['./user-dialog-form.component.css']
 })
 export class UserDialogFormComponent implements OnInit {
-
+  
   userForm : FormGroup;
   dialogTitle: string;
+  hidePassword = true;
   constructor(private dialogRef: MatDialogRef<UserDialogFormComponent>, @Inject(MAT_DIALOG_DATA) private data) {
     this.userForm = new FormGroup({
       id: new FormControl(''),
       fullName: new FormControl('', [Validators.required]),
       email: new FormControl('', [Validators.required, Validators.email]),
-      birthDate: new FormControl('', [Validators.required, Validators.min(0)]),
+      password: new FormControl('', [Validators.required]),
+      birthDate: new FormControl('', [Validators.required]),
       createdAt: new FormControl(''),
       updatedAt: new FormControl('')
     });
