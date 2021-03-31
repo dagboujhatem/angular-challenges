@@ -1,20 +1,22 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { DeleteConfirmDialogComponent } from './components/dialog/delete-confirm-dialog/delete-confirm-dialog.component';
 import { UpdateDialogComponent } from './components/dialog/update-dialog/update-dialog.component';
 import { ProductsService } from './services/products.service';
-// import { MatPaginator } from '@angular/material/paginator';
-// import {MatTableDataSource} from '@angular/material/table';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatTableDataSource } from '@angular/material/table';
+import { MatSort } from '@angular/material/sort';
 
 @Component({
   selector: 'app-customers',
   templateUrl: './customers.component.html',
   styleUrls: ['./customers.component.css']
 })
-export class CustomersComponent implements OnInit  {
+export class CustomersComponent implements OnInit {
 
-  productsList: any;
+  displayedColumns: string[] = ['id', 'name', 'description', 'quantity', 'price', 'Actions'];
+  dataSource : MatTableDataSource<any>;
 
   constructor(private productsService: ProductsService,
     private snackBar: MatSnackBar,
@@ -24,10 +26,19 @@ export class CustomersComponent implements OnInit  {
    this.loadProducts();
   }
 
+  @ViewChild(MatPaginator) paginator: MatPaginator;
+
+  @ViewChild(MatSort) sort: MatSort;
+
   loadProducts()
   {
     this.productsService.getAllProducts().subscribe((response)=>{
-      this.productsList = response;
+      // this.productsList = response;
+      this.dataSource = new MatTableDataSource<any>(response);
+      // Assign the paginator *after* dataSource is set
+      this.dataSource.paginator = this.paginator;
+      // Assign the sort *after* dataSource is set
+      this.dataSource.sort = this.sort;
     }, (error)=>{
         console.log(error);        
     });

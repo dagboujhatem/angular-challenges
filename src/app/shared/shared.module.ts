@@ -8,8 +8,9 @@ import { HttpClientModule } from '@angular/common/http';
 // Angular Material Modules imports 
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
-// import { MatPaginator } from '@angular/material/paginator';
-// import { MatTableDataSource } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
+import { MatTableModule } from '@angular/material/table'
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatIconModule } from '@angular/material/icon';
@@ -26,8 +27,9 @@ import { MatIconModule } from '@angular/material/icon';
     // Angular Material Modules 
     MatInputModule,
     MatButtonModule,
-    // MatPaginator,
-    // MatTableDataSource,
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule,
     MatSnackBarModule,
     MatDialogModule,
     MatIconModule,
@@ -40,9 +42,9 @@ import { MatIconModule } from '@angular/material/icon';
     // Angular Material Modules 
     MatInputModule, 
     MatButtonModule,
-
-    // MatPaginator,
-    // MatTableDataSource,
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule,
     MatSnackBarModule,
     MatDialogModule,
     MatIconModule,
