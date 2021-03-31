@@ -6,31 +6,32 @@
   
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
-        <li class="nav-item">
+        <li class="nav-item" *ngIf="(isLoggedIn | async)">
           <a class="nav-link" routerLink="/todo-list">CRUD Todo</a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item" *ngIf="(isLoggedIn | async)">
           <a class="nav-link" routerLink="/add-user-with-skills">Skills</a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item" *ngIf="(isLoggedIn | async)">
           <a class="nav-link" routerLink="/add-project">Projects</a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item" *ngIf="(isLoggedIn | async)">
           <a class="nav-link" routerLink="/list-products">Products</a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item" *ngIf="(isLoggedIn | async)">
           <a class="nav-link" routerLink="/users">Users</a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item" *ngIf="(isLoggedIn | async)">
           <a class="nav-link" routerLink="/customers">Products with API</a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item" *ngIf="(isLoggedIn | async)">
           <a class="nav-link" routerLink="/customers/users-v2">Users with API</a>
         </li>
       </ul>
       <form class="form-inline my-2 my-lg-0">
-          <a class="btn btn-info mr-1" routerLink="/register">Register</a>
-          <a class="btn btn-success" routerLink="/login">Login</a>
+          <a class="btn btn-info mr-1" routerLink="/register" *ngIf="!(isLoggedIn | async)">Register</a>
+          <a class="btn btn-success" routerLink="/login" *ngIf="!(isLoggedIn | async)">Login</a>
+          <a class="btn btn-success" (click)="logout()" *ngIf="(isLoggedIn | async)">logout</a>
       </form>
     </div>
   </nav>
