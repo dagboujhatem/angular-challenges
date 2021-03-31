@@ -28,5 +28,22 @@
       "id": 3
     }
   ],
-  "users": []
+  "users": [
+    {
+      "id": 1,
+      "fullName": "dagboujhatem",
+      "email": "dagboujhatem@gmail.com",
+      "birthDate": "1994-12-11",
+      "createdAt": "2021-03-31T19:47:42.432Z",
+      "updatedAt": "2021-03-31T19:51:55.832Z"
+    },
+    {
+      "id": 2,
+      "fullName": "ahmed ben ali",
+      "email": "ahmed@gmail.com",
+      "birthDate": "2004-12-10",
+      "createdAt": "2021-03-31T19:53:40.743Z",
+      "updatedAt": "2021-03-31T19:54:15.703Z"
+    }
+  ]
 }

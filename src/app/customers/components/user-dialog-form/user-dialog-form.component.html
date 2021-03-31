@@ -1,1 +1,31 @@
-<p>user-dialog-form works!</p>
+<h1 mat-dialog-title>{{ dialogTitle }}</h1>
+<form mat-dialog-content class="example-form" [formGroup]="userForm" (ngSubmit)="saveUser()">
+
+  <mat-form-field class="example-full-width">
+    <mat-label>Full Name :</mat-label>
+    <input matInput placeholder="Type your full name here" formControlName="fullName">
+    <mat-error *ngIf="userForm.get('fullName').hasError('required')">Full name is required.</mat-error>
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width">
+    <mat-label>E-mail :</mat-label>
+    <input type="email" matInput placeholder="Type your email here" formControlName="email">
+    <mat-error *ngIf="userForm.get('email').hasError('required')">E-mail is required.</mat-error>
+    <mat-error *ngIf="userForm.get('email').hasError('email')">E-mail is required.</mat-error>
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width">
+    <mat-label>Birth Date :</mat-label>
+    <input type="date" matInput placeholder="Type a birth date here " formControlName="birthDate">
+    <mat-error *ngIf="userForm.get('birthDate').hasError('required')">Birth date is required.</mat-error>
+    <mat-error *ngIf="userForm.get('birthDate').hasError('min')">Birth date must be a positive number.
+    </mat-error>
+  </mat-form-field>
+
+  <div mat-dialog-actions>
+    <button mat-flat-button [mat-dialog-close]="null" type="button" cdkFocusInitial>
+      <mat-icon>arrow_back_ios</mat-icon> Cancel</button>
+    <button mat-flat-button color="primary" type="submit" [disabled]="userForm.invalid">
+      <mat-icon>save</mat-icon> Save product</button>
+  </div>
+</form>
