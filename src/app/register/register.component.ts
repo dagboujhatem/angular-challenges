@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { AuthService } from '../authentification/auth.service';
 import { emailMismatchValidator } from '../validators/email-mismatch.validator';
 import { firstNameValidator } from '../validators/firstName.validator';
 import { passwordMismatchValidator } from '../validators/password-mismatch.validator';
@@ -22,7 +24,7 @@ export class RegisterComponent implements OnInit {
   },{
     validators: [ emailMismatchValidator, passwordMismatchValidator]
   });
-  constructor() { }
+  constructor(private authService: AuthService, private router: Router) { }
 
   ngOnInit(): void { 
   }
@@ -33,9 +35,16 @@ export class RegisterComponent implements OnInit {
     {
       return;
     }
-    let users = JSON.parse(localStorage.getItem('users') || '[]');
-    users.push(this.registerForm.value);
-    localStorage.setItem('users', JSON.stringify(users));    
+    // let users = JSON.parse(localStorage.getItem('users') || '[]');
+    // users.push(this.registerForm.value);
+    // localStorage.setItem('users', JSON.stringify(users));    
+
+    // Second Way with JSON server
+    this.authService.register(this.registerForm.value).subscribe((response)=>{
+        this.router.navigateByUrl('/login');
+    }, (error)=>{
+      console.log(error);
+    });
   }
 
 }

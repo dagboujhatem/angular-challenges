@@ -11,5 +11,5 @@ export function passwordMismatchValidator(group: AbstractControl): {[key: string
         return null;
     }
   
-    return password && passwordConfirmation && password === passwordConfirmation ? null : { 'passwordNotSame': true }
+    return password && passwordConfirmation && password.value === passwordConfirmation.value ? null : { 'passwordNotSame': true }
 }

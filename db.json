@@ -47,5 +47,16 @@
       "createdAt": "2021-03-31T21:26:12.636Z",
       "updatedAt": "2021-03-31T21:32:08.120Z"
     }
+  ],
+  "clients": [
+    {
+      "firstName": "dagbouj",
+      "lastName": "hatem",
+      "email": "dagboujhatem@gmail.com",
+      "emailConfirmation": "dagboujhatem@gmail.com",
+      "password": "12345678",
+      "passwordConfirmation": "12345678",
+      "id": 1
+    }
   ]
 }
