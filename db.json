@@ -31,27 +31,21 @@
   "users": [
     {
       "id": 1,
-      "fullName": "dagboujhatem",
+      "fullName": "dagbouj hatem",
       "email": "dagboujhatem@gmail.com",
-      "birthDate": "1994-12-11",
-      "createdAt": "2021-03-31T19:47:42.432Z",
-      "updatedAt": "2021-03-31T19:51:55.832Z"
+      "password": "admin",
+      "birthDate": "2021-03-08T23:00:00.000Z",
+      "createdAt": "2021-03-31T21:15:53.170Z",
+      "updatedAt": "2021-03-31T21:15:53.171Z"
     },
     {
       "id": 2,
-      "fullName": "ahmed ben ali",
-      "email": "ahmed@gmail.com",
-      "birthDate": "2004-12-10",
-      "createdAt": "2021-03-31T19:53:40.743Z",
-      "updatedAt": "2021-03-31T19:54:15.703Z"
-    },
-    {
-      "id": 3,
-      "fullName": "med amine",
-      "email": "medamine@gmail.com",
-      "birthDate": "1998-11-11",
-      "createdAt": "2021-03-31T20:02:08.969Z",
-      "updatedAt": "2021-03-31T20:02:08.969Z"
+      "fullName": "dagbouj hatem",
+      "email": "dagboujhatem2017@gmail.com",
+      "password": "ggg",
+      "birthDate": "2021-03-29T23:00:00.000Z",
+      "createdAt": "2021-03-31T21:26:12.636Z",
+      "updatedAt": "2021-03-31T21:32:08.120Z"
     }
   ]
 }

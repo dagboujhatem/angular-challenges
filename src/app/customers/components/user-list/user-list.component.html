@@ -7,6 +7,10 @@
 </div>
 <div class="row">
     <div class="offset-1 col-10">
+        <mat-form-field>
+          <mat-label>Filter</mat-label>
+          <input type="search" matInput (keyup)="applyFilter($event)" placeholder="Search ..." #input>
+        </mat-form-field>
         <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" matSort>
           
             <!-- ID Column -->
@@ -30,7 +34,19 @@
             <!-- birthDate Column -->
             <ng-container matColumnDef="birthDate">
               <th mat-header-cell *matHeaderCellDef mat-sort-header> Birth Date </th>
-              <td mat-cell *matCellDef="let user"> {{user.birthDate}} </td>
+              <td mat-cell *matCellDef="let user"> {{user.birthDate | date: 'dd/MM/yyyy'}} </td>
+            </ng-container>
+
+             <!-- createdAt Column -->
+             <ng-container matColumnDef="createdAt">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header> Creation Date </th>
+              <td mat-cell *matCellDef="let user"> {{user.createdAt | date: 'dd/MM/yyyy'}} </td>
+            </ng-container>
+
+             <!-- updatedAt Column -->
+             <ng-container matColumnDef="updatedAt">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header> Last update at </th>
+              <td mat-cell *matCellDef="let user"> {{user.updatedAt | date: 'dd/MM/yyyy'}} </td>
             </ng-container>
   
              <!-- Actions Column -->

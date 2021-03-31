@@ -15,7 +15,7 @@ import { UserDialogFormComponent } from '../user-dialog-form/user-dialog-form.co
 })
 export class UserListComponent implements OnInit {
 
-  displayedColumns: string[] = ['id', 'fullName', 'email', 'birthDate', 'Actions'];
+  displayedColumns: string[] = ['id', 'fullName', 'email', 'birthDate', 'createdAt', 'updatedAt',  'Actions'];
   dataSource : MatTableDataSource<any>;
   constructor(private userService: UserService,
     private snackBar: MatSnackBar,
@@ -96,6 +96,12 @@ export class UserListComponent implements OnInit {
         });
       }
     });
+  }
+
+  applyFilter(event: Event)
+  {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 
 }
